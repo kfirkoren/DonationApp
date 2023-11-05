@@ -55,7 +55,7 @@ export const logOut = async () => {
 export const checkToken = async () => {
   try {
     let response = await auth().currentUser.getIdToken(true);
-    console.log('We are updating the token for you \n' + response);
+    // console.log('We are updating the token for you \n' + response);
     store.dispatch(updateToken(response));
     return response;
   } catch (error) {
