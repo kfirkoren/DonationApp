@@ -18,17 +18,12 @@ import RootNavigation from './navigation/RootNavigation';
 import {checkToken} from './api/user';
 
 const App = () => {
-  //DonationAppTest
-  //אובייקט שמטרתו לעקוב אחרי הסטייט של האפליקציה
   const appState = useRef(AppState.currentState);
-  //היוז אפקט ייפעל כל פעם שהאפליקציה תעלה
   useEffect(() => {
     const subscription = AppState.addEventListener(
       'change',
-      //ברגע שיש שינוי במצד של האפליקציה אז נקסט סטייס מקבל את המצב הבא
       async nextAppState => {
         if (
-          //בודק אם האפליקציה הייתה ברקע או כבויה והמשתמש נכנס אליה
           appState.current.match(/inactive|background/) &&
           nextAppState === 'active'
         ) {
@@ -44,14 +39,9 @@ const App = () => {
     console.log('Application has rendered');
   }, []);
   return (
-    //ברגע שאני עוטף את כל האפליקציה בפרוביידר עם הסטור שיצרנו אנחנו מאפשרים גישה לכל האפקליקצה
-    //לסטור הזה ואז כל האובייקטים יהיו נגישים עבור כל החלקים באפליקציה
     <Provider store={store}>
-      {/* פרסיסטגייט עוטף את האפליקציה מכאן כדי להבטיח שהאפליקציה לא תיטען לפני שכל המידע הנחוץ ייובא */}
       <PersistGate persistor={persistor} loading={null}>
         <NavigationContainer>
-          {/* <MainNavigation /> */}
-          {/* השתמשנו ברוט נביגיישן כדי לתת גישה למי שמחובר לעמודים ספציפים ולמי שלא מחובר שלא תהייה לו גישה לעמודים לא רלוונטים */}
           <RootNavigation />
         </NavigationContainer>
       </PersistGate>
