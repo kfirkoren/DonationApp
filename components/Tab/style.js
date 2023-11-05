@@ -19,7 +19,6 @@ const style = StyleSheet.create({
     fontSize: scaleFontSize(14),
     lineHeight: scaleFontSize(17),
     textAlign: 'center',
-    // paddingHorizontal: horizontalScale(33),
   },
   inactiveTab: {
     backgroundColor: '#F3F5F9',
