@@ -18,6 +18,7 @@ import RootNavigation from './navigation/RootNavigation';
 import {checkToken} from './api/user';
 
 const App = () => {
+  //DonationAppTest
   //אובייקט שמטרתו לעקוב אחרי הסטייט של האפליקציה
   const appState = useRef(AppState.currentState);
   //היוז אפקט ייפעל כל פעם שהאפליקציה תעלה
