@@ -27,16 +27,16 @@ const App = () => {
           appState.current.match(/inactive|background/) &&
           nextAppState === 'active'
         ) {
-          console.log('1');
-          console.log('You have come back into the app');
+          // console.log('1');
+          // console.log('You have come back into the app');
           await checkToken();
         }
         appState.current = nextAppState;
       },
     );
-    console.log('2');
+    // console.log('2');
     checkToken();
-    console.log('Application has rendered');
+    // console.log('Application has rendered');
   }, []);
   return (
     <Provider store={store}>

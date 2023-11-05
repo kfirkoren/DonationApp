@@ -22,8 +22,8 @@ const Registration = ({navigation}) => {
   const [fullName, setfullName] = useState('');
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
-  console.log(email);
-  console.log(password);
+  // console.log(email);
+  // console.log(password);
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <View style={style.BackButton}>
