@@ -8,9 +8,7 @@ import PropTypes from 'prop-types';
 const SingleDonationItem = props => {
   return (
     <Pressable
-      //זה הטריק שבאמצעותו מעבירים אי די ספציפי מקומפוננטה החוצה
       onPress={() => {
-        //באמצעות השורה הזו אנחנו מעבירים את האי די שלו החוצה למסך של הבית
         props.onPress(props.donationItemId);
       }}>
       <View>
