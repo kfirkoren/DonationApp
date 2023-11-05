@@ -22,8 +22,8 @@ const Login = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
-  console.log(email);
-  console.log(password);
+  // console.log(email);
+  // console.log(password);
   const dispatch = useDispatch();
 
 

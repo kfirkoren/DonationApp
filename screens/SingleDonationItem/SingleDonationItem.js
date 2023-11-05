@@ -19,8 +19,8 @@ const SingleDonationItem = ({navigation, route}) => {
     state => state.donations.selectedDonationInformation,
   );
   const categoryInformation = route.params.categoryInformation;
-  console.log(route.params);
-  console.log(donationItemInformation.image);
+  // console.log(route.params);
+  // console.log(donationItemInformation.image);
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <ScrollView showsVerticalScrollIndicator={false} style={style.container}>
