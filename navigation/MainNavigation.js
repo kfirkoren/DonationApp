@@ -10,7 +10,6 @@ import SingleDonationItem from '../screens/SingleDonationItem/SingleDonationItem
 import Payment from '../screens/Payment/Payment';
 
 const Stack = createStackNavigator();
-//ייאצנו את שני הנבייגיטורים
 export const NonAuthenticated = () => {
   return (
     <Stack.Navigator
@@ -18,7 +17,6 @@ export const NonAuthenticated = () => {
       screenOptions={{header: () => null, headerShown: false}}>
       <Stack.Screen name={Routes.Login} component={Login} />
       <Stack.Screen name={Routes.Registration} component={Registration} />
-      {/* <Stack.Screen name={Routes.Test} component={Test} /> */}
     </Stack.Navigator>
   );
 };
@@ -34,7 +32,6 @@ export const Authenticated = () => {
         component={SingleDonationItem}
       />
       <Stack.Screen name={Routes.Payment} component={Payment} />
-      {/* <Stack.Screen name={Routes.Test} component={Test} /> */}
     </Stack.Navigator>
   );
 };
