@@ -31,7 +31,6 @@ import {logOut} from '../../api/user';
 const Home = ({navigation}) => {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
-  // dispatch(resetToInitialState());
   // console.log(user);
   const categories = useSelector(state => state.categories);
   // console.log(categories);
@@ -45,8 +44,6 @@ const Home = ({navigation}) => {
   const [categoryList, setcategoryList] = useState([]);
   const [isLoadingCategories, setisisLoadingCategories] = useState(false);
 
-  //מחזיר כל פעם מקטע חדש של אובייקטים מתוך הדטאבייס שלנו כדי שנוכל לרנ כל פעם מחדש
-  //ושלא נרדנדר את כולם במכה אחת!
   const pagination = (items, pageNumber, pageSize) => {
     // console.log('currentPage' + pageNumber);
     const startIndex = (pageNumber - 1) * pageSize;
@@ -57,7 +54,6 @@ const Home = ({navigation}) => {
     return items.slice(startIndex, endIndex);
   };
 
-  //זה בעצם טוען את ה 4 הראשונים ברגע שהאפליקציה עולה בפעם הראשונה
   useEffect(() => {
     setisisLoadingCategories(true);
     setcategoryList(
@@ -93,7 +89,6 @@ const Home = ({navigation}) => {
             />
             <Pressable
               onPress={async () => {
-                //מה שמחזיר את היוזר למצב של לוג אווט
                 dispatch(resetToInitialState());
                 await logOut();
               }}>
@@ -116,7 +111,7 @@ const Home = ({navigation}) => {
             <Header title={'Select Ctegory'} type={2} />
           </View>
           <FlatList
-            onEndReachedThreshold={0.5} // ברגע שנגלול חצי מהרשימה ייטען החצי הבא, זה נותן את הטריגר לפונקציה מתחת
+            onEndReachedThreshold={0.5} 
             onEndReached={() => {
               // console.log('User reached the end');
               if (isLoadingCategories) {
@@ -136,7 +131,6 @@ const Home = ({navigation}) => {
             }}
             horizontal={true}
             showsHorizontalScrollIndicator={false}
-            //בכל פעם אנחנו בעצם מגדילים ב 4 את הליסט הזה ובכך מרנדרים כל פעם 4 אובייקטים חדשים
             data={categoryList}
             renderItem={({item}) => (
               <View style={style.categoryItem} key={item.categoryId}>
@@ -144,7 +138,6 @@ const Home = ({navigation}) => {
                   tabId={item.categoryId}
                   title={item.name}
                   isInactive={item.categoryId !== categories.selectedCategoryId}
-                  //הוולו שיחזור פה זה בעצם הטאב אי די שהגדרנו בקומפננטה של טאב אי די
                   onPress={value => dispatch(updateSelectedCategoryId(value))}
                 />
               </View>
@@ -152,14 +145,9 @@ const Home = ({navigation}) => {
           />
         </View>
 
-        {/* זה בעצם פונקציה שכל פעם שהערכים בשצריך לרנדר מתחדשים היא תרנדר את הדיבים מחדש */}
         {donationItems.length > 0 && (
           <View style={style.donationItemContainer}>
             {donationItems.map(value => {
-              //למעשה עוברים על כל אייטם במערך ויוצרים לו דיב עם התכונות שלו
-              //מכאן בעצם מתחיל תהליך הרינדוס של הדיבים של התרומות ולמעשה עושים
-              //את הקטגורי אינפורמיישן פה
-              //כדי שלא משנה על מי נלחץ אז אותה קטגוריה תעבור
               const categoryInformation = categories.categories.find(
                 val => val.categoryId === categories.selectedCategoryId,
               );
@@ -169,12 +157,8 @@ const Home = ({navigation}) => {
                   key={value.donationItemId}
                   style={style.singleDonationItem}>
                   <SingleDonationItem
-                    //למעשה אנחנו מקבלים את הערך של סלקטדדוניישןאידי מהקומפוננטה עצמה
-                    //ובכך אנחנו יכולים להשתמש בו פה בחוץ
                     onPress={selectedDonationId => {
                       dispatch(updateSelectedDonationId(selectedDonationId));
-                      //כאן בעצם ניתן לראות שניתן להעביר למסך נתונים כמו הקטגורי אינפורמיישן מהנביגיישן
-                      //שאחרי זה נמשוך אותם לדרך הראוט
                       navigation.navigate(Routes.singleDonationItem, {
                         categoryInformation,
                       });
@@ -186,11 +170,6 @@ const Home = ({navigation}) => {
                     price={parseFloat(value.price)}
                     badgeTitle={
                       categoryInformation.name
-                      //הוצאנו את התא במערך שיש לו את אותו האינדקס כמו האינדקס הנבחר
-                      //וממנו הוצאנו את השם
-                      // categories.categories.filter(
-                      //   val => val.categoryId === categories.selectedCategoryId,
-                      // )[0].name
                     }
                   />
                 </View>
