@@ -40,7 +40,6 @@ const Login = ({navigation}) => {
           <Input
             placeholder="Enter your email"
             label={'Email'}
-            //בגלל הסט אימייל שמשנה את מצב האימייל, הקונסול לוג מדפיס כל פעם ערך חדש
             onChangeText={value => setEmail(value)}
             keyboardType={'default'}
           />
@@ -49,7 +48,6 @@ const Login = ({navigation}) => {
           <Input
             placeholder="******"
             label={'Password'}
-            //בגלל הסט אימייל שמשנה את מצב האימייל, הקונסול לוג מדפיס כל פעם ערך חדש
             onChangeText={value => setPassword(value)}
             secureTextEntry={true}
           />
