@@ -6,10 +6,8 @@ import style from './style';
 import PropTypes from 'prop-types';
 import {horizontalScale} from '../../assets/styles/scaling';
 
-//כאן יצרנו קומפוננטה של הדר שתיתן מענה לכל ההדרים שיש באפליקציה
 
 const Badge = props => {
-  //היוז סטייס איפשר לי לקבל את ערך הרוחב של האובייקט ולהשתמש בו בחוץ
   const [width, setWidth] = useState(0);
   const textRef = useRef(null);
   const paddingHorizontal = 10;
