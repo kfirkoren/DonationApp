@@ -5,11 +5,9 @@ import {Routes} from '../../navigation/Routes';
 import style from './style';
 import PropTypes from 'prop-types';
 
-//כאן יצרנו קומפוננטה של הדר שתיתן מענה לכל ההדרים שיש באפליקציה
 
 const Button = props => {
   return (
-    //בחרנו בפרסבל כי פרסבל זה כמו ויו או דיב שניתן לערוך
     <Pressable
       disabled={props.isDisabled}
       style={[style.button, props.isDisabled && style.Disabled]}
@@ -19,7 +17,6 @@ const Button = props => {
   );
 };
 
-//מאפשר להגדיר ערכים דיפולטיבים לפרופס
 Button.default = {
   isDisabled: false,
   onPress: () => {},
