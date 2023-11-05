@@ -48,7 +48,7 @@ const Payment = ({navigation}) => {
               placeholder="e.g 2524 1950 5100 "
               label={'Card Number'}
               onChangeText={value => setcardNamber(value)}
-              keyboardType={'Numeric'}
+              keyboardType={'number-pad'}
             />
           </View>
           <View style={style.detailContainer}>
@@ -57,7 +57,7 @@ const Payment = ({navigation}) => {
                 placeholder="ex. 06/24"
                 label={'Expired Date'}
                 onChangeText={value => setexpiredDte(value)}
-                keyboardType={'Numeric'}
+                keyboardType={'number-pad'}
               />
             </View>
             <View style={[globalStyle.marginBottom24, style.check]}>
@@ -65,7 +65,7 @@ const Payment = ({navigation}) => {
                 placeholder="ex. 599"
                 label={'CVV'}
                 onChangeText={value => setCvv(value)}
-                keyboardType={'Numeric'}
+                keyboardType={'number-pad'}
               />
             </View>
           </View>
