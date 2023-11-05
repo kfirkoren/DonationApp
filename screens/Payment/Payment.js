@@ -17,8 +17,6 @@ import BackButton from '../../components/BackButton/BackButton';
 import {createUser} from '../../api/user';
 import {useSelector} from 'react-redux';
 
-//בגלל שהרשמה זה מסך שהוא חלק מהמחסנית של המסכים אז נביגיטיון זה חלק מהתכונות שהוא מקבל
-//ולכן לא צריך לעשות לנביגיישן אימפורט
 const Payment = ({navigation}) => {
   const donationItemInformation = useSelector(
     state => state.donations.selectedDonationInformation,
