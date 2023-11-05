@@ -16,8 +16,6 @@ import Input from '../../components/Input/Input';
 import BackButton from '../../components/BackButton/BackButton';
 import {createUser} from '../../api/user';
 
-//בגלל שהרשמה זה מסך שהוא חלק מהמחסנית של המסכים אז נביגיטיון זה חלק מהתכונות שהוא מקבל
-//ולכן לא צריך לעשות לנביגיישן אימפורט
 const Registration = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -41,7 +39,6 @@ const Registration = ({navigation}) => {
           <Input
             placeholder="Enter your full name"
             label={'First & Last Name...'}
-            //בגלל הסט אימייל שמשנה את מצב האימייל, הקונסול לוג מדפיס כל פעם ערך חדש
             onChangeText={value => setfullName(value)}
             keyboardType={'default'}
           />
@@ -50,7 +47,6 @@ const Registration = ({navigation}) => {
           <Input
             placeholder="Enter your email..."
             label={'Email'}
-            //בגלל הסט אימייל שמשנה את מצב האימייל, הקונסול לוג מדפיס כל פעם ערך חדש
             onChangeText={value => setEmail(value)}
             keyboardType={'email-address'}
           />
@@ -59,32 +55,27 @@ const Registration = ({navigation}) => {
           <Input
             placeholder="******"
             label={'Password'}
-            //בגלל הסט אימייל שמשנה את מצב האימייל, הקונסול לוג מדפיס כל פעם ערך חדש
             onChangeText={value => setPassword(value)}
             secureTextEntry={true}
           />
         </View>
-        {/* הצורת כתיבה פה אומרת שרק אם יש משהו בסקסס או בארור רק אז הקומפוננטה הזו תרונדר */}
         {error.length > 0 && <Text style={style.errorMessage}>{error}</Text>}
         {success.length > 0 && (
           <Text style={style.successMessage}>{success}</Text>
         )}
         <View style={globalStyle.marginBottom24}>
           <Button
-            //לא ניתן יהייה ללחוץ על הלחצן אם השדות לא יעמדו בפרמטרים האלו
             isDisabled={
               fullName.length <= 2 || email.length <= 5 || password.length <= 8
             }
             title="Register"
             onPress={async () => {
               let user = await createUser(fullName, email, password);
-              //אם הוחזרה בעיה  ניכנס אחרת נלך לסקסספול
               if (user.error) {
                 setError(user.error);
               } else {
                 setError('');
                 setSuccess('You have successfuly registered');
-                //אחרי שלוש שניות נעבור לוג אין
                 setTimeout(() => navigation.goBack(), 3000);
               }
             }}
