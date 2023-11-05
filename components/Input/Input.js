@@ -16,10 +16,8 @@ const Input = props => {
         placeholder={props.placeholder ? props.placeholder : null}
         style={style.input}
         value={value}
-        //הפונקציה הזו היא כדי שהערכים שאנחנו מקלידים יישארו בתוך האינפוט
         onChangeText={val => {
           setValue(val);
-          //כדי שגם לקומפוננטה תהייה את התכונה הזו אז אנחנו עושים את השורה הזו
           props.onChangeText(val);
         }}
         keyboardType={props.keyboardType ? props.keyboardType : 'default'}

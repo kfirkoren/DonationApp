@@ -5,7 +5,6 @@ import {Routes} from '../../navigation/Routes';
 import style from './style';
 import PropTypes from 'prop-types';
 
-//כאן יצרנו קומפוננטה של הדר שתיתן מענה לכל ההדרים שיש באפליקציה
 
 const Header = props => {
   const styleToApply = () => {
@@ -32,7 +31,6 @@ const Header = props => {
   );
 };
 
-//מאפשר להגדיר ערכים דיפולטיבים לפרופס
 Header.defaultProps = {
   title: '',
   type: 1,
