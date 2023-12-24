@@ -4,5 +4,4 @@ Utilized React-Native, JavaScript, CSS.
 
 # screenshots
 
-![screenshots](https://github.com/kfirkoren/Try/assets/104307794/e914275b-735e-4cec-bf2c-80b75cc55b5f)
-
+![screenshots](https://github.com/kfirkoren/DonationApp/assets/104307794/9b4c0ee3-1953-4aa3-8d2b-5886426046a4)
